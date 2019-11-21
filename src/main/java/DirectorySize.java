@@ -41,7 +41,11 @@ public class DirectorySize {
 
 
         try {
-            sizeDir = Files.walk(Paths.get(DIR_PATH)).map(Path::toFile).filter(File::isFile).mapToLong(File::length).sum();
+            sizeDir = Files.walk(Paths.get(DIR_PATH))
+                    .map(Path::toFile)
+                    .filter(File::isFile)
+                    .mapToLong(File::length)
+                    .sum();
             System.out.println(humanFileSize(sizeDir));
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
